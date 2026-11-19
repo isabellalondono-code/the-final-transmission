@@ -18,19 +18,17 @@ body {
     color: #a4ffb0;
     font-family: "Courier New", monospace;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
+    padding: 30px 18px;
 }
 
 .terminal {
     width: 100%;
     max-width: 750px;
+    margin: 35px auto;
     border: 1px solid #285c38;
     padding: 35px;
     background: #080e0a;
-    box-shadow: 0 0 35px rgba(54, 255, 100, 0.08);
+    box-shadow: 0 0 35px rgba(54,255,100,0.08);
 }
 
 .top {
@@ -45,18 +43,24 @@ body {
 .status {
     color: #65b879;
     font-size: 13px;
-    margin-bottom: 12px;
+    margin: 18px 0;
 }
 
 h1 {
-    font-size: clamp(25px, 5vw, 38px);
-    margin: 20px 0;
+    font-size: clamp(25px,5vw,38px);
+    margin: 22px 0;
     color: #c1ffca;
     letter-spacing: 2px;
 }
 
+h2 {
+    color: #a4ffb0;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
 p {
-    line-height: 1.8;
+    line-height: 1.9;
     color: #b4cbb8;
     margin: 15px 0;
     font-size: 14px;
@@ -70,11 +74,11 @@ button {
     background: transparent;
     color: #78ff96;
     border: 1px solid #4bba67;
-    padding: 14px 22px;
+    padding: 14px 18px;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 12px;
     cursor: pointer;
-    margin-top: 25px;
+    margin-top: 15px;
     letter-spacing: 1px;
     transition: 0.3s;
 }
@@ -85,7 +89,7 @@ button:hover {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .message {
@@ -94,13 +98,75 @@ button:hover {
     margin-top: 30px;
 }
 
+.archive {
+    margin-top: 35px;
+    border-top: 1px solid #285c38;
+    padding-top: 25px;
+}
+
+.file-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 12px 0;
+    padding: 17px;
+    line-height: 1.7;
+}
+
+.file-number {
+    color: #65b879;
+    font-size: 11px;
+}
+
+.file-title {
+    color: #c1ffca;
+    font-size: 14px;
+}
+
+.file-description {
+    color: #829b88;
+    font-size: 12px;
+}
+
+.file-view {
+    margin-top: 30px;
+    padding: 22px;
+    border: 1px solid #285c38;
+    background: #050907;
+}
+
+.back-button {
+    border-color: #365c40;
+    color: #9dbba3;
+}
+
+.photo-placeholder {
+    min-height: 250px;
+    border: 1px dashed #4bba67;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    margin: 25px 0;
+    background: #0c160f;
+    color: #65b879;
+}
+
+.photo-placeholder .symbol {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
 .footer {
     border-top: 1px solid #285c38;
-    margin-top: 35px;
+    margin-top: 40px;
     padding-top: 18px;
     color: #568663;
     font-size: 11px;
     letter-spacing: 1px;
+    line-height: 1.8;
 }
 
 .cursor {
@@ -112,9 +178,10 @@ button:hover {
     50% { opacity: 0; }
 }
 
-@media (max-width: 500px) {
+@media(max-width:500px) {
     .terminal {
-        padding: 23px;
+        padding: 22px;
+        margin: 10px auto;
     }
 }
 </style>
@@ -126,7 +193,7 @@ button:hover {
 
     <div class="top">
         ARCHIVO PRIVADO // I.S.
-        <span style="float:right">SISTEMA V.01</span>
+        <span style="float:right">SISTEMA V.02</span>
     </div>
 
     <div class="status">
@@ -146,7 +213,8 @@ button:hover {
     </p>
 
     <p class="green">
-        Un nuevo capítulo ha comenzado. Este archivo fue creado para ti.
+        Un nuevo capítulo ha comenzado.
+        Este archivo fue creado para ti.
     </p>
 
     <button onclick="iniciarTransmision()">
@@ -176,13 +244,11 @@ button:hover {
             <p>
                 Quería dejarte algo diferente.
                 Algo que pudieras abrir, explorar y conservar.
-                Un pequeño recordatorio de que, incluso en medio
-                de todas las cosas que la vida tiene preparadas,
-                hay personas que se alegran genuinamente de verte crecer.
+                Un pequeño recordatorio de que hay personas
+                que se alegran genuinamente de verte crecer.
             </p>
 
             <p>
-                Gracias por formar parte de mi historia.
                 Espero que este nuevo capítulo te traiga cosas bonitas,
                 descubrimientos inesperados y muchas razones
                 para sentirte orgulloso de ti mismo.
@@ -193,35 +259,231 @@ button:hover {
                 Es el comienzo de otra historia.
             </p>
 
+        </div>
+
+        <div class="archive">
+
+            <p class="status">[ DIRECTORIO DE ARCHIVOS DISPONIBLES ]</p>
+
+            <h2>Un pequeño recorrido...</h2>
+
+            <p>
+                Hay algunas cosas que quiero dejarte por aquí.
+                Puedes abrir cada archivo a tu ritmo.
+            </p>
+
+            <button class="file-button" onclick="abrirArchivo('archivo1')">
+                <span class="file-number">ARCHIVO_001</span><br>
+                <span class="file-title">Un nuevo comienzo</span><br>
+                <span class="file-description">Unas palabras para esta nueva etapa.</span>
+            </button>
+
+            <button class="file-button" onclick="abrirArchivo('archivo2')">
+                <span class="file-number">ARCHIVO_002</span><br>
+                <span class="file-title">Algunas cosas que deseo para ti</span><br>
+                <span class="file-description">Pequeños deseos para todo lo que viene.</span>
+            </button>
+
+            <button class="file-button" onclick="abrirArchivo('archivo3')">
+                <span class="file-number">ARCHIVO_003</span><br>
+                <span class="file-title">Un recuerdo conservado</span><br>
+                <span class="file-description">Porque algunas cosas merecen quedarse.</span>
+            </button>
+
+            <button class="file-button" onclick="abrirArchivo('archivo4')">
+                <span class="file-number">ARCHIVO_004</span><br>
+                <span class="file-title">The Last Frame</span><br>
+                <span class="file-description">La última parte de esta transmisión.</span>
+            </button>
+
+        </div>
+
+        <div id="archivo1" class="file-view hidden">
+            <p class="status">[ ARCHIVO 001 // ABIERTO ]</p>
+            <h2>Un nuevo comienzo</h2>
+
+            <p>
+                Los comienzos siempre tienen algo especial:
+                esa mezcla de incertidumbre, emoción y posibilidades
+                que todavía no sabemos cómo van a tomar forma.
+            </p>
+
+            <p>
+                Ojalá disfrutes mucho este camino.
+                Que te permitas aprender, equivocarte,
+                descubrir y sorprenderte con todo lo que eres capaz de hacer.
+            </p>
+
+            <p class="green">
+                Que nunca te falten razones para empezar algo nuevo.
+            </p>
+
+            <button class="back-button" onclick="volverArchivos()">
+                [ VOLVER A LOS ARCHIVOS ]
+            </button>
+        </div>
+
+        <div id="archivo2" class="file-view hidden">
+            <p class="status">[ ARCHIVO 002 // ABIERTO ]</p>
+            <h2>Algunas cosas que deseo para ti</h2>
+
+            <p>
+                Deseo que encuentres personas que te inspiren,
+                lugares que te sorprendan y proyectos que te emocionen.
+            </p>
+
+            <p>
+                Que tengas paciencia cuando las cosas no salgan
+                como esperabas y valentía para intentarlo otra vez.
+            </p>
+
+            <p>
+                Que nunca pierdas las ganas de aprender,
+                de hacer preguntas y de mirar el mundo con curiosidad.
+            </p>
+
+            <p class="green">
+                Y, sobre todo, que disfrutes mucho el camino,
+                no solamente aquello que quieres alcanzar.
+            </p>
+
+            <button class="back-button" onclick="volverArchivos()">
+                [ VOLVER A LOS ARCHIVOS ]
+            </button>
+        </div>
+
+        <div id="archivo3" class="file-view hidden">
+            <p class="status">[ ARCHIVO 003 // ABIERTO ]</p>
+            <h2>Un recuerdo conservado</h2>
+
+            <p>
+                Hay personas, momentos y encuentros que,
+                de una manera u otra, terminan formando parte
+                de nuestra historia.
+            </p>
+
+            <p>
+                A veces pasa el tiempo, cambian las circunstancias
+                y cada quien continúa su camino.
+                Pero eso no significa que todo lo vivido
+                pierda su valor.
+            </p>
+
+            <p class="green">
+                Me pareció bonito guardar un pequeño espacio
+                para recordar algo de todo eso.
+            </p>
+
+            <button class="back-button" onclick="volverArchivos()">
+                [ VOLVER A LOS ARCHIVOS ]
+            </button>
+        </div>
+
+        <div id="archivo4" class="file-view hidden">
+            <p class="status">[ ARCHIVO 004 // ÚLTIMO ARCHIVO ]</p>
+            <h2>Antes de cerrar la transmisión...</h2>
+
+            <p>
+                No quería que este detalle terminara siendo
+                solamente un enlace más entre tantos.
+                Quería crear algo que pudieras explorar,
+                que tuviera un poquito de dedicación y que,
+                por un instante, te sacara una sonrisa.
+            </p>
+
+            <p>
+                No sé en qué momento leerás estas palabras
+                ni cómo serán las cosas cuando lo hagas.
+                No hay ninguna expectativa detrás de esto.
+            </p>
+
+            <p class="green">
+                Simplemente me pareció bonito hacer algo así para ti.
+            </p>
+
+            <div class="photo-placeholder">
+                <div class="symbol">[ + ]</div>
+                <p class="green">ÚLTIMO RECUERDO</p>
+                <p>
+                    ESPACIO RESERVADO PARA UNA FOTOGRAFÍA
+                </p>
+                <p style="font-size:11px">
+                    La imagen será incorporada en la versión final.
+                </p>
+            </div>
+
+            <h2>Gracias por llegar hasta aquí.</h2>
+
+            <p>
+                Te deseo un camino lleno de cosas buenas.
+                Que la vida te sorprenda y que siempre encuentres
+                motivos para seguir creciendo.
+            </p>
+
             <h1>Con cariño,<br>Isabella.</h1>
 
+            <button class="back-button" onclick="volverArchivos()">
+                [ VOLVER A LOS ARCHIVOS ]
+            </button>
         </div>
 
     </div>
 
     <div class="footer">
-        FIN DEL ARCHIVO // 18.11.2026
-        <br><br>
+        FIN DEL ARCHIVO // I.S.
+        <br>
         ALGUNOS RECUERDOS MERECEN SER CONSERVADOS.
     </div>
 
 </div>
 
 <script>
+
 function iniciarTransmision() {
+    document.getElementById("transmision").classList.remove("hidden");
 
-    const mensaje = document.getElementById("transmision");
+    document.querySelector(".terminal > button").classList.add("hidden");
 
-    mensaje.classList.remove("hidden");
-
-    document.querySelector("button").style.display = "none";
-
-    mensaje.scrollIntoView({
+    document.getElementById("transmision").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
-
 }
+
+function abrirArchivo(id) {
+
+    const archivos = document.querySelectorAll(".file-view");
+
+    archivos.forEach(function(archivo) {
+        archivo.classList.add("hidden");
+    });
+
+    document.getElementById(id).classList.remove("hidden");
+
+    document.querySelector(".archive").classList.add("hidden");
+
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+function volverArchivos() {
+
+    const archivos = document.querySelectorAll(".file-view");
+
+    archivos.forEach(function(archivo) {
+        archivo.classList.add("hidden");
+    });
+
+    document.querySelector(".archive").classList.remove("hidden");
+
+    document.querySelector(".archive").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
 </script>
 
 </body>
