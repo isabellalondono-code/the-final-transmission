@@ -125,97 +125,98 @@ button:hover {
 <div class="terminal">
 
     <div class="top">
-        I.S. // PRIVATE ARCHIVE
-        <span style="float:right">SYSTEM V.01</span>
+        ARCHIVO PRIVADO // I.S.
+        <span style="float:right">SISTEMA V.01</span>
     </div>
 
     <div class="status">
-        [ CONNECTION ESTABLISHED ]
+        [ CONEXIÓN ESTABLECIDA ]
     </div>
 
-    <p>Incoming transmission detected...</p>
-    <p>Recipient: <span class="green">DANIEL</span></p>
-    <p>Sender: <span class="green">ISABELLA</span></p>
-    <p>Classification: PERSONAL / CONFIDENTIAL</p>
+    <p>Se ha detectado una transmisión entrante...</p>
+    <p>Destinatario: <span class="green">DANIEL</span></p>
+    <p>Remitente: <span class="green">ISABELLA</span></p>
+    <p>Clasificación: PERSONAL / CONFIDENCIAL</p>
 
     <h1>THE FINAL<br>TRANSMISSION<span class="cursor">_</span></h1>
 
     <p>
-        Some messages are not meant to be sent immediately.
-        Some are worth waiting for.
+        Hay mensajes que no están destinados a enviarse
+        inmediatamente. Algunos merecen esperar.
     </p>
 
     <p class="green">
-        A new chapter has begun. This file was created for you.
+        Un nuevo capítulo ha comenzado. Este archivo fue creado para ti.
     </p>
 
-    <button onclick="startTransmission()">
-        [ INITIATE TRANSMISSION ]
+    <button onclick="iniciarTransmision()">
+        [ INICIAR TRANSMISIÓN ]
     </button>
 
-    <div id="transmission" class="hidden">
+    <div id="transmision" class="hidden">
 
         <div class="message">
 
-            <p class="status">[ TRANSMISSION UNLOCKED ]</p>
+            <p class="status">[ TRANSMISIÓN DESBLOQUEADA ]</p>
 
-            <h1>Dear Daniel,</h1>
+            <h1>Querido Daniel:</h1>
 
             <p>
-                If you are reading this, it means you have reached
-                the final transmission of the day.
+                Si estás leyendo esto, significa que has llegado
+                a la última transmisión del día.
             </p>
 
             <p>
-                Today marks the beginning of a new chapter in your life.
-                And although I cannot know everything that awaits you,
-                I hope you never lose the curiosity, courage and
-                determination that brought you here.
+                Hoy comienza un nuevo capítulo de tu vida.
+                Y aunque no puedo saber todo lo que te espera,
+                espero que nunca pierdas la curiosidad, el valor
+                y la determinación que te han traído hasta aquí.
             </p>
 
             <p>
-                I wanted to leave you something different.
-                Something you could open, explore and keep.
-                A little reminder that even in the middle of all
-                the things life has waiting for us, there are people
-                who are genuinely happy to see you grow.
+                Quería dejarte algo diferente.
+                Algo que pudieras abrir, explorar y conservar.
+                Un pequeño recordatorio de que, incluso en medio
+                de todas las cosas que la vida tiene preparadas,
+                hay personas que se alegran genuinamente de verte crecer.
             </p>
 
             <p>
-                Thank you for being part of my story.
-                I hope this new chapter brings you beautiful things,
-                unexpected discoveries and reasons to be proud of yourself.
+                Gracias por formar parte de mi historia.
+                Espero que este nuevo capítulo te traiga cosas bonitas,
+                descubrimientos inesperados y muchas razones
+                para sentirte orgulloso de ti mismo.
             </p>
 
             <p class="green">
-                This is not the end of a transmission.<br>
-                It is the beginning of another story.
+                Esta no es la última transmisión.<br>
+                Es el comienzo de otra historia.
             </p>
 
-            <h1>With love,<br>Isabella.</h1>
+            <h1>Con cariño,<br>Isabella.</h1>
 
         </div>
 
     </div>
 
     <div class="footer">
-        END OF FILE // 18.11.2026
+        FIN DEL ARCHIVO // 18.11.2026
         <br><br>
-        ALL RIGHTS RESERVED TO THE MEMORIES WE KEEP.
+        ALGUNOS RECUERDOS MERECEN SER CONSERVADOS.
     </div>
 
 </div>
 
 <script>
-function startTransmission() {
+function iniciarTransmision() {
 
-    const message = document.getElementById("transmission");
+    const mensaje = document.getElementById("transmision");
 
-    message.classList.remove("hidden");
+    mensaje.classList.remove("hidden");
 
     document.querySelector("button").style.display = "none";
 
-    message.scrollIntoView({
+    mensaje.scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
