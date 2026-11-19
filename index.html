@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Final Transmission</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050907;
+    color: #a4ffb0;
+    font-family: "Courier New", monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.terminal {
+    width: 100%;
+    max-width: 750px;
+    border: 1px solid #285c38;
+    padding: 35px;
+    background: #080e0a;
+    box-shadow: 0 0 35px rgba(54, 255, 100, 0.08);
+}
+
+.top {
+    color: #65b879;
+    font-size: 12px;
+    border-bottom: 1px solid #285c38;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.status {
+    color: #65b879;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(25px, 5vw, 38px);
+    margin: 20px 0;
+    color: #c1ffca;
+    letter-spacing: 2px;
+}
+
+p {
+    line-height: 1.8;
+    color: #b4cbb8;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.green {
+    color: #6dff91;
+}
+
+button {
+    background: transparent;
+    color: #78ff96;
+    border: 1px solid #4bba67;
+    padding: 14px 22px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 25px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #14351e;
+    box-shadow: 0 0 15px #285c38;
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    border-left: 2px solid #55d879;
+    padding-left: 20px;
+    margin-top: 30px;
+}
+
+.footer {
+    border-top: 1px solid #285c38;
+    margin-top: 35px;
+    padding-top: 18px;
+    color: #568663;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@media (max-width: 500px) {
+    .terminal {
+        padding: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="top">
+        I.S. // PRIVATE ARCHIVE
+        <span style="float:right">SYSTEM V.01</span>
+    </div>
+
+    <div class="status">
+        [ CONNECTION ESTABLISHED ]
+    </div>
+
+    <p>Incoming transmission detected...</p>
+    <p>Recipient: <span class="green">DANIEL</span></p>
+    <p>Sender: <span class="green">ISABELLA</span></p>
+    <p>Classification: PERSONAL / CONFIDENTIAL</p>
+
+    <h1>THE FINAL<br>TRANSMISSION<span class="cursor">_</span></h1>
+
+    <p>
+        Some messages are not meant to be sent immediately.
+        Some are worth waiting for.
+    </p>
+
+    <p class="green">
+        A new chapter has begun. This file was created for you.
+    </p>
+
+    <button onclick="startTransmission()">
+        [ INITIATE TRANSMISSION ]
+    </button>
+
+    <div id="transmission" class="hidden">
+
+        <div class="message">
+
+            <p class="status">[ TRANSMISSION UNLOCKED ]</p>
+
+            <h1>Dear Daniel,</h1>
+
+            <p>
+                If you are reading this, it means you have reached
+                the final transmission of the day.
+            </p>
+
+            <p>
+                Today marks the beginning of a new chapter in your life.
+                And although I cannot know everything that awaits you,
+                I hope you never lose the curiosity, courage and
+                determination that brought you here.
+            </p>
+
+            <p>
+                I wanted to leave you something different.
+                Something you could open, explore and keep.
+                A little reminder that even in the middle of all
+                the things life has waiting for us, there are people
+                who are genuinely happy to see you grow.
+            </p>
+
+            <p>
+                Thank you for being part of my story.
+                I hope this new chapter brings you beautiful things,
+                unexpected discoveries and reasons to be proud of yourself.
+            </p>
+
+            <p class="green">
+                This is not the end of a transmission.<br>
+                It is the beginning of another story.
+            </p>
+
+            <h1>With love,<br>Isabella.</h1>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        END OF FILE // 18.11.2026
+        <br><br>
+        ALL RIGHTS RESERVED TO THE MEMORIES WE KEEP.
+    </div>
+
+</div>
+
+<script>
+function startTransmission() {
+
+    const message = document.getElementById("transmission");
+
+    message.classList.remove("hidden");
+
+    document.querySelector("button").style.display = "none";
+
+    message.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+</script>
+
+</body>
+</html>
